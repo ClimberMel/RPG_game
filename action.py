@@ -8,35 +8,47 @@ import event
 
 class character():
     def __init__(self):
+        self.name = input("What is your name?")
         self.charclass = "Human"
+        self.stg = 0
+        self.con = 0
+        self.dex = 0
+        self.inl = 0
+        self.hp = 0
+        self.mp = 0
 
     def __str__(self):
-        print("You are a ", self.charclass)
+        # the __str__ function returns a string if you print the class
+        # .format(self=self) means that where self occurs inside {} in the format string, 
+        # it refers to object referenced by the self variable.
+        return '{self.name}, you are a {self.charclass}'.format(self=self)
 
-    def characteristics(self):
-        stg = self.stg
-        con = self.con
-        dex = self.dex
-        inl = self.inl
-        hp = self.hp
-        mp = self.mp
+    def printStats(self):
+        #str_stats = 'Your stats are: \nStr: {self.stg} \nCon: {self.con} \nDex: {self.dex} \nInt {self.inl} \nHP: {self.hp} \nMP: {self.mp}'.format(self=self)
+        str_stats = '{self.name}, your stats are: \nStr: {self.stg} \
+        \nCon: {self.con} \
+        \nDex: {self.dex} \
+        \nInt {self.inl} \
+        \nHP: {self.hp} \
+        \nMP: {self.mp}'.format(self=self)
+        #print('Your stats are: \nStr: {self.stg} \nCon: {self.con}'.format(self=self))
+        print(str_stats)
 
-
-
-
-def intro():
+def intro(hero):
+    print(hero.name, ', ')
     print(event.e0)
-    act1()
+    #act1()
+    act3(hero)
 
-def act1():
+def act1(hero):
     print(event.e1)
-    act263()
+    act263(hero)
 
 def act2():
     print(event.e2)
     
-def act3():
-    event.showevent('e3')
+def act3(hero):
+    print(event.e3)
     print('a: Do you ask Ruth about what she said?')
     print('b: Do you ask May about what Ruth said?')
     print('c: Do you say nothing?')
@@ -48,6 +60,13 @@ def act3():
         print(inp)
         print('You must enter a, b or c')
         inp = input('Enter your choice')
+    if inp == 'a':
+        act9(hero)
+    elif inp == 'b':
+        act15(hero)
+    else:
+        act22(hero)
+
 
 def act4():
     print(event.e4)
@@ -63,6 +82,16 @@ def act7():
 
 def act8():
     print(event.e8)
+
+def act9(hero):
+    print(event.e9)
+    act22(hero)
+
+def act15(hero):
+    print(hero.printstats())
+
+def act22(hero):
+    print(hero.name, ' This is the END!!!')
 
 def act262():
     print(event.e262)
@@ -101,5 +130,6 @@ def act263():
 
     
 
-
-act3()
+Mel = character()
+Mel.printStats()
+intro(Mel)

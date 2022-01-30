@@ -65,8 +65,15 @@ Startled, you explain the frustrations of the situation.
 afternoon. You’ll be hungry by now? Help yourself to any food 
 in the house. The door’s not locked.”
 You glance at Ruth where she has squirreled herself behind 
-her mother’s leg. Her eyes implore you to silence.
-'''
+her mother’s leg. Her eyes implore you to silence.'''
+
+e9 = '''You crouch down and ask Ruth what she meant.
+“It’s scary at the festival,” Ruth says. “It’s bright and hot and 
+the flames go all over!” Her face and voice are both childlike. 
+This abrupt shift is disturbing. You suppose all children do 
+unfathomable things.
+May rolls her eyes and tousles her daughter’s hair. Ruth looks 
+at the ground.'''
 
 e262 = '''You struggle with the huge man. His fists come out of the
 darkness like hammers.
