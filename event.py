@@ -14,9 +14,11 @@ a pencil, an eraser, and some roleplaying dice.
 You don’t need to read the rules before you start playing. Just
 settle in a comfortable chair before a roaring fire. Then read on
 and follow the instructions.
-...On second thoughts, don’t sit too close to the fire.'''
+...On second thoughts, don’t sit too close to the fire.
+'''
 
-e1 = '''The sun is high in the sky, a merciless ball of heat. You feel
+e1 = '''Your adventure begins...
+The sun is high in the sky, a merciless ball of heat. You feel
 scorched by the time you reach the bus halt in front of Osborn’s
 Drug Store. It’s a relief to put down your heavy cases and take
 off your hat for a moment. You fan your face. It has been a long
@@ -35,13 +37,15 @@ The answer is here. None of your supposed friends have come
 to see you off. You are alone. Whatever challenges lie in Arkham,
 it will be a new life, and a brave one.
 A small gray motor coach approaches and rattles to a stop.
-You put your hat back on and pick up your cases.'''
+You put your hat back on and pick up your cases.
+'''
 
 e2 = '''You put up a spirited resistance, but the man’s bulk and
 determination wear you down. Finally he lands a crushing blow
 and you drop. Blackness floods in.
 Later, you are dimly aware of your legs being lifted and your
-back scraping against the ground as you are dragged off.'''
+back scraping against the ground as you are dragged off.
+'''
 
 e3 = '''Your morning exertions have left you hungry. You roam the 
 streets of Emberhead looking for sustenance. There is nothing 
@@ -65,7 +69,8 @@ Startled, you explain the frustrations of the situation.
 afternoon. You’ll be hungry by now? Help yourself to any food 
 in the house. The door’s not locked.”
 You glance at Ruth where she has squirreled herself behind 
-her mother’s leg. Her eyes implore you to silence.'''
+her mother’s leg. Her eyes implore you to silence.
+'''
 
 e9 = '''You crouch down and ask Ruth what she meant.
 “It’s scary at the festival,” Ruth says. “It’s bright and hot and 
@@ -73,7 +78,8 @@ the flames go all over!” Her face and voice are both childlike.
 This abrupt shift is disturbing. You suppose all children do 
 unfathomable things.
 May rolls her eyes and tousles her daughter’s hair. Ruth looks 
-at the ground.'''
+at the ground.
+'''
 
 e262 = '''You struggle with the huge man. His fists come out of the
 darkness like hammers.
@@ -95,7 +101,8 @@ You should be able to afford a rail ticket for at least some of the way;
 otherwise this will be the first of many long bus trips.
 “Mmm-hm.” The driver scratches the match and lights his
 cigarette. The end flares as he takes a draw. Then he exhales and
-gestures to the back of the coach. “Luggage rack’s up there.'''
+gestures to the back of the coach. “Luggage rack’s up there.
+'''
 
 def showevent(ev):
     print(ev)
