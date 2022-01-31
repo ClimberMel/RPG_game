@@ -4,18 +4,28 @@
 # strength str will be stg
 # intelligence int will be inl
 
+# Turns out that I need to keep track of original stats e263
+# and also calc 
 import event
 
+#---------------------------------------------------------------------------------------
+#    CREATE CHARACTER
+#---------------------------------------------------------------------------------------
 class character():
     def __init__(self):
         self.name = input("What is your name?")
         self.charclass = "Human"
-        self.stg = 0
-        self.con = 0
-        self.dex = 0
-        self.inl = 0
-        self.hp = 0
-        self.mp = 0
+        self.stats = {
+            "stg" : [0, 0, 0, 0],        
+            "con" : [0, 0, 0, 0],
+            "siz" : [0, 0, 0, 0],
+            "dex" : [0, 0, 0, 0],
+            "app" : [0, 0, 0, 0],
+            "edu" : [0, 0, 0, 0],
+            "inl" : [0, 0, 0, 0],
+            "pwr" : [0, 0, 0, 0],
+            "hp" : [0, 0],
+            "mp" : [0, 0]}
 
     def __str__(self):
         # the __str__ function returns a string if you print the class
@@ -25,26 +35,31 @@ class character():
 
     def printStats(self):
         #str_stats = 'Your stats are: \nStr: {self.stg} \nCon: {self.con} \nDex: {self.dex} \nInt {self.inl} \nHP: {self.hp} \nMP: {self.mp}'.format(self=self)
-        str_stats = '{self.name}, your stats are: \nStr: {self.stg} \
-        \nCon: {self.con} \
-        \nDex: {self.dex} \
-        \nInt {self.inl} \
-        \nHP: {self.hp} \
-        \nMP: {self.mp}'.format(self=self)
+        str_stats = '{self.name}, your stats are: \nStr: {self.stats[stg]} \
+        \nCon: {self.stats[con]} \
+        \nSiz: {self.stats[siz]} \
+        \nDex: {self.stats[dex]} \
+        \nApp: {self.stats[app]} \
+        \nEdu: {self.stats[edu]} \
+        \nInt: {self.stats[inl]} \
+        \nPwr: {self.stats[pwr]} \
+        \nHP: {self.stats[hp]} \
+        \nMP: {self.stats[mp]}'.format(self=self)
         #print('Your stats are: \nStr: {self.stg} \nCon: {self.con}'.format(self=self))
         print(str_stats)
 
+#---------------------------------------------------------------------------------------
+#    ACTIONS
+#---------------------------------------------------------------------------------------
 def intro(hero):
-    print(hero.name, ', ')
     print(event.e0)
-    #act1()
-    act3(hero)
-
+    act1(hero)
+    
 def act1(hero):
     print(event.e1)
     act263(hero)
 
-def act2():
+def act2(hero):
     print(event.e2)
     
 def act3(hero):
@@ -67,33 +82,73 @@ def act3(hero):
     else:
         act22(hero)
 
-
-def act4():
+def act4(hero):
     print(event.e4)
 
-def act5():
+def act5(hero):
     print(event.e5)
 
-def act6():
+def act6(hero):
     print(event.e6)
 
-def act7():
+def act7(hero):
     print(event.e7)
 
-def act8():
+def act8(hero):
     print(event.e8)
+    '''If your SIZ is 40, go to 23. If your SIZ is higher than this, go to 38.'''
+    if hero.stats["siz"][1] == 40:
+        print('Going to 23')
+        act23(hero)
+    elif hero.stats["siz"][1] > 40:
+        print('Going to 38')
+        act38(hero)
+    else:
+        print('There seems to be a problem in act8, SIZ is: ', hero.stats["siz"][1])
+        act270(hero)
 
 def act9(hero):
     print(event.e9)
     act22(hero)
 
 def act15(hero):
-    print(hero.printstats())
+    print('Temporary exit')
+    print(hero.printStats())
 
 def act22(hero):
     print(hero.name, ' This is the END!!!')
 
-def act262():
+def act23(hero):
+    print('Made it to act23')
+    print('act23 test', hero.printstats())
+
+def act38(hero):
+    print(event.e38)
+    act233(hero)
+
+def act134(hero):
+    print(event.e134)
+    '''Add SIZ and CON together, then divide the total by 10, rounding 
+        down. This is the starting value for your hit points.'''
+    hero.stats["hp"][0] = (hero.stats["siz"][0] + hero.stats["con"][0]) / 10
+    act15(hero)  # temporary exit
+
+def act233(hero):
+    print(event.e233)
+    '''You will see two smaller boxes to the right of each characteristic 
+        value. Halve each value, rounding down, and write the result in the 
+        upper right box. Also, divide each value by 5, again rounding down, 
+        and write the result in the lower right box. We will use these numbers 
+        later. If you are using the interactive PDF version of the investigator 
+        sheet, you’ll see it does all of the math for you!
+        In the strip below, you will see tracks that record Sanity and 
+        magic points. Beginning Sanity is equal to your original POW, and 
+        beginning magic points are the same as the value you’ve just assigned 
+        for POW divided by 5. Mark these on the tracks.
+        Then go to 134'''
+    act134(hero)
+    
+def act262(hero):
     print(event.e262)
 '''Conduct close-quarters combat using pages 12-13 of the Quick-
 Start Rules. You may need to refer to page 7 first to look up your
@@ -117,7 +172,7 @@ If you successfully escape, go to 12'''
 
 
 
-def act263():
+def act263(hero):
     print(event.e263)
     '''Look at your investigator sheet. At the top, you have spaces for eight
     characteristics: Strength (STR), Constitution (CON), Power (POW),
@@ -127,9 +182,28 @@ def act263():
     60, 70, 80. If you would like more information about what these
     characteristics mean, read page 6 of the Quick-Start Rules.
     When you have done that, go to 8.'''
-
+    hero.stats["stg"] = [40,40,0,0]
+    hero.stats["con"] = [50,50,0,0]
+    hero.stats["pwr"] = [50,50,0,0]
+    hero.stats["dex"] = [50,50,0,0]
+    hero.stats["app"] = [60,60,0,0]
+    hero.stats["siz"] = [60,60,0,0]
+    hero.stats["inl"] = [70,70,0,0]
+    hero.stats["edu"] = [80,80,0,0]
     
+    act8(hero)
 
-Mel = character()
-Mel.printStats()
-intro(Mel)
+def act270(hero):
+    print(event.e263)
+    print(hero.name, ', You have single-handedly destroyed a section of New Hampshire \
+        about sixteen miles in diameter! \nThis also killed you')
+
+
+#---------------------------------------------------------------------------------------
+#    MAIN Program
+#---------------------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    Mel = character()
+    Mel.printStats()
+    intro(Mel)
