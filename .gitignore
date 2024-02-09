@@ -1,3 +1,41 @@
+# My atf_gui project
+
+# ----------------------------------------------------------------------------------------
+#   My specific ignore files and folders
+# ----------------------------------------------------------------------------------------
+
+#   These are used to run modules, but I don't need it constantly updated in GitHub
+main.py
+app.py
+
+#   Setting, Parameters and Config files
+*.json
+#*.toml
+*.yaml
+*.ini
+
+#   Flowchart and Word documents
+*.vsd
+*.dia
+*.doc*
+*.rtf
+
+#   testcode folder is added here as the whole folder will be ignored 
+#   since the folder is not to be included in the repo nor any contained files
+#   documentation folder is only for me, not to be included with project or github
+#   docs would be where documentation for the project (to be shared) would be placed
+
+testcode/
+documentation/
+
+#   ignore modules starting with test
+#   temporary code can be made and run in normal folders for testing using test* prefix for module names
+test*.*
+
+# ----------------------------------------------------------------------------------------
+# Default .gitignore from https://github.com/github/gitignore/blob/main/Python.gitignore
+# ----------------------------------------------------------------------------------------
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

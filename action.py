@@ -6,7 +6,7 @@
 
 # Turns out that I need to keep track of original stats e263
 # and also calc 
-import event
+import event  # theis is a local module event.py
 
 #---------------------------------------------------------------------------------------
 #    CREATE CHARACTER
@@ -53,10 +53,12 @@ class character():
 #---------------------------------------------------------------------------------------
 def intro(hero):
     print(event.e0)
+    input("press key to cont.")
     act1(hero)
     
 def act1(hero):
     print(event.e1)
+    input("press key to cont.")
     act263(hero)
 
 def act2(hero):
@@ -145,7 +147,9 @@ def act233(hero):
         magic points. Beginning Sanity is equal to your original POW, and 
         beginning magic points are the same as the value you’ve just assigned 
         for POW divided by 5. Mark these on the tracks.
+
         Then go to 134'''
+
     act134(hero)
     
 def act262(hero):
@@ -191,7 +195,7 @@ def act263(hero):
     hero.stats["inl"] = [70,70,0,0]
     hero.stats["edu"] = [80,80,0,0]
     
-    act8(hero)
+    #act8(hero)
 
 def act270(hero):
     print(event.e263)
@@ -204,6 +208,10 @@ def act270(hero):
 #---------------------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    Mel = character()
-    Mel.printStats()
-    intro(Mel)
+    Max = character()
+    #Mel.printStats()
+    #intro(Mel)
+    act263(Max)
+    #Mel.printStats()
+    #Max.stats["stg"][2] = 15
+    Max.printStats()
