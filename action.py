@@ -149,6 +149,7 @@ def act233(hero):
         for POW divided by 5. Mark these on the tracks.
 
         Then go to 134'''
+    hero.stats["stg"][2] = hero.stats["stg"][0] / 2
 
     act134(hero)
     
@@ -186,14 +187,14 @@ def act263(hero):
     60, 70, 80. If you would like more information about what these
     characteristics mean, read page 6 of the Quick-Start Rules.
     When you have done that, go to 8.'''
-    hero.stats["stg"] = [40,40,0,0]
-    hero.stats["con"] = [50,50,0,0]
-    hero.stats["pwr"] = [50,50,0,0]
-    hero.stats["dex"] = [50,50,0,0]
-    hero.stats["app"] = [60,60,0,0]
-    hero.stats["siz"] = [60,60,0,0]
-    hero.stats["inl"] = [70,70,0,0]
-    hero.stats["edu"] = [80,80,0,0]
+    hero.stats["stg"] = [80,80,0,0]
+    hero.stats["con"] = [70,70,0,0]
+    hero.stats["pwr"] = [60,60,0,0]
+    hero.stats["dex"] = [60,60,0,0]
+    hero.stats["app"] = [50,50,0,0]
+    hero.stats["siz"] = [50,50,0,0]
+    hero.stats["inl"] = [50,50,0,0]
+    hero.stats["edu"] = [40,40,0,0]
     
     #act8(hero)
 
